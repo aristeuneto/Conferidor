@@ -34,7 +34,7 @@ public class Principal {
         List listaSmart3 = new ArrayList();
 
         apoio.setApoioNomePaciente("Neto");
-        apoio.setApoioOS("33");
+        apoio.setApoioOS("3");
         listaApoio.add("ferro");
         listaApoio.add("ferritina");
         listaApoio.add("tsh");
@@ -62,7 +62,7 @@ public class Principal {
         smart2.setSmartExames(listaSmart2);
 
         pacientesApoio.add(apoio);
-        //    pacientesApoio.add(apoio2);
+        pacientesApoio.add(apoio2);
 
         pacientesSmart.add(smart);
         pacientesSmart.add(smart2);
@@ -71,10 +71,12 @@ public class Principal {
 
         for (int i = 0; i < pacientesApoio.size(); i++) {
 
+            // Começa em zero a cada novo paciente!
+            int x = 0;
             for (int cont = 0; cont < pacientesSmart.size(); cont++) {
-
                 if (pacientesApoio.get(i).getApoioOS().equals(pacientesSmart.get(cont).getSmartOS())) {
-
+                   
+                    x=1;  // Atribue a 1 a cada paciente encontrado!
                     System.out.println("");
                     System.out.println("Paciente Encontrado:");
                     System.out.println("OS: " + pacientesApoio.get(i).getApoioOS());
@@ -90,7 +92,7 @@ public class Principal {
                         }
 
                     }
-                } else if(cont == pacientesSmart.size() - 1)  {
+                } else if (cont == pacientesSmart.size() - 1 && x==0) {
                     System.out.println("");
                     System.out.println("Paciente não encontrado:");
                     System.out.println("OS: " + pacientesApoio.get(i).getApoioOS());
